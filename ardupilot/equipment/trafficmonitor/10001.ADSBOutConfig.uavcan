@@ -1,0 +1,28 @@
+# Copy of MAVLink msg
+#<message id="10001" name="UAVIONIX_ADSB_OUT_CFG">
+#<description>Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec thereafter)</description>
+
+
+# <field type="uint32_t" name="ICAO">Vehicle address (24 bit)</field>
+uint32 ICAO
+
+# <field type="char[9]" name="callsign">Vehicle identifier (8 characters, null terminated, valid characters are A-Z, 0-9, " " only)</field>
+uint8[9] callsign
+
+# <field type="uint8_t" name="emitterType" enum="ADSB_EMITTER_TYPE">Transmitting vehicle type. See ADSB_EMITTER_TYPE enum</field>
+uint8 emitterType
+
+# <field type="uint8_t" name="aircraftSize" enum="UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE">Aircraft length and width encoding (table 2-35 of DO-282B)</field>
+uint8 aircraftSize
+
+# <field type="uint8_t" name="gpsOffsetLat" enum="UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT">GPS antenna lateral offset (table 2-36 of DO-282B)</field>
+uint8 gpsOffsetLat
+
+# <field type="uint8_t" name="gpsOffsetLon" enum="UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON">GPS antenna longitudinal offset from nose [if non-zero, take position (in meters) divide by 2 and add one] (table 2-37 DO-282B)</field>
+uint8 gpsOffsetLon
+
+# <field type="uint16_t" name="stallSpeed" units="cm/s">Aircraft stall speed in cm/s</field>
+uint16 stallSpeed
+
+# <field type="uint8_t" name="rfSelect" enum="UAVIONIX_ADSB_OUT_RF_SELECT" display="bitmask">ADS-B transponder reciever and transmit enable flags</field>
+uint8 rfSelect
