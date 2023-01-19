@@ -1,0 +1,7 @@
+# Copy of MAVLink msg
+# <message id="10006" name="UAVIONIX_ADSB_GET">
+# <description>Request messages.</description>
+
+
+# <field type="uint32_t" name="ReqMessageId">Message ID to request. Supports any message in this 10000-10099 range</field>
+uint32 ReqMessageId

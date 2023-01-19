@@ -1,0 +1,12 @@
+# Copy of MAVLink msg
+# <message id="10003" name="UAVIONIX_ADSB_TRANSCEIVER_HEALTH_REPORT">
+# <description>Transceiver heartbeat with health report (updated every 10s)</description>
+
+
+# <field type="uint8_t" name="rfHealth" enum="UAVIONIX_ADSB_RF_HEALTH" display="bitmask">ADS-B transponder messages</field>
+# <description>Status flags for ADS-B transponder dynamic output</description>
+uint5 UAVIONIX_ADSB_RF_HEALTH_INITIALIZING = 0
+uint5 UAVIONIX_ADSB_RF_HEALTH_OK = 1
+uint5 UAVIONIX_ADSB_RF_HEALTH_FAIL_TX = 2
+uint5 UAVIONIX_ADSB_RF_HEALTH_FAIL_RX = 16
+uint5 rfHealth

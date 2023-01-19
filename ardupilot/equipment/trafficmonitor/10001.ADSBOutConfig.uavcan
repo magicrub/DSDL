@@ -1,0 +1,82 @@
+# Copy of MAVLink msg
+# <message id="10001" name="UAVIONIX_ADSB_OUT_CFG">
+# <description>Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec thereafter)</description>
+
+
+# <field type="uint32_t" name="ICAO">Vehicle address (24 bit)</field>
+uint32 ICAO
+
+# <field type="char[9]" name="callsign">Vehicle identifier (8 characters, null terminated, valid characters are A-Z, 0-9, " " only)</field>
+uint8[9] callsign
+
+# <field type="uint8_t" name="emitterType" enum="ADSB_EMITTER_TYPE">Transmitting vehicle type. See ADSB_EMITTER_TYPE enum</field>
+# <description>ADSB classification for the type of vehicle emitting the transponder signal</description>
+uint5 ADSB_EMITTER_TYPE_NO_INFO = 0
+uint5 ADSB_EMITTER_TYPE_LIGHT = 1
+uint5 ADSB_EMITTER_TYPE_SMALL = 2
+uint5 ADSB_EMITTER_TYPE_LARGE = 3
+uint5 ADSB_EMITTER_TYPE_HIGH_VORTEX_LARGE = 4
+uint5 ADSB_EMITTER_TYPE_HEAVY = 5
+uint5 ADSB_EMITTER_TYPE_HIGHLY_MANUV = 6
+uint5 ADSB_EMITTER_TYPE_ROTOCRAFT = 7
+uint5 ADSB_EMITTER_TYPE_UNASSIGNED = 8
+uint5 ADSB_EMITTER_TYPE_GLIDER = 9
+uint5 ADSB_EMITTER_TYPE_LIGHTER_AIR = 10
+uint5 ADSB_EMITTER_TYPE_PARACHUTE = 11
+uint5 ADSB_EMITTER_TYPE_ULTRA_LIGHT = 12
+uint5 ADSB_EMITTER_TYPE_UNASSIGNED2 = 13
+uint5 ADSB_EMITTER_TYPE_UAV = 14
+uint5 ADSB_EMITTER_TYPE_SPACE = 15
+uint5 ADSB_EMITTER_TYPE_UNASSGINED3 = 16
+uint5 ADSB_EMITTER_TYPE_EMERGENCY_SURFACE = 17
+uint5 ADSB_EMITTER_TYPE_SERVICE_SURFACE = 18
+uint5 ADSB_EMITTER_TYPE_POINT_OBSTACLE = 19
+uint5 emitterType
+
+# <field type="uint8_t" name="aircraftSize" enum="UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE">Aircraft length and width encoding (table 2-35 of DO-282B)</field>
+# <description>Definitions for aircraft size</description>
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_NO_DATA = 0
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L15M_W23M = 1
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25M_W28P5M = 2
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25_34M = 3
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_33M = 4
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_38M = 5
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_39P5M = 6
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_45M = 7
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_45M = 8
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_52M = 9
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_59P5M = 10
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_67M = 11
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W72P5M = 12
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W80M = 13
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W80M = 14
+uint4 UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W90M = 15
+uint4 aircraftSize
+
+# <field type="uint8_t" name="gpsOffsetLat" enum="UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT">GPS antenna lateral offset (table 2-36 of DO-282B)</field>
+# <description>GPS lataral offset encoding</description>
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_NO_DATA = 0
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_2M = 1
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_4M = 2
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_6M = 3
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_0M = 4
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_2M = 5
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_4M = 6
+uint3 UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_6M = 7
+uint3 gpsOffsetLat
+
+# <field type="uint8_t" name="gpsOffsetLon" enum="UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON">GPS antenna longitudinal offset from nose [if non-zero, take position (in meters) divide by 2 and add one] (table 2-37 DO-282B)</field>
+# <description>GPS longitudinal offset encoding</description>
+bool UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_NO_DATA = 0
+bool UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_APPLIED_BY_SENSOR = 1
+bool gpsOffsetLon
+
+# <field type="uint16_t" name="stallSpeed" units="cm/s">Aircraft stall speed in cm/s</field>
+uint16 stallSpeed
+
+# <field type="uint8_t" name="rfSelect" enum="UAVIONIX_ADSB_OUT_RF_SELECT" display="bitmask">ADS-B transponder reciever and transmit enable flags</field>
+# <description>Transceiver RF control flags for ADS-B transponder dynamic reports</description>
+uint2 UAVIONIX_ADSB_OUT_RF_SELECT_STANDBY = 0
+uint2 UAVIONIX_ADSB_OUT_RF_SELECT_RX_ENABLED = 1
+uint2 UAVIONIX_ADSB_OUT_RF_SELECT_TX_ENABLED = 2
+uint2 rfSelect

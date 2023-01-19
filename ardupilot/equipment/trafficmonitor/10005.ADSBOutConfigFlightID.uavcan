@@ -1,0 +1,7 @@
+# Copy of MAVLink msg
+# <message id="10005" name="UAVIONIX_ADSB_OUT_CFG_FLIGHTID">
+# <description>Flight Identification for ADSB-Out vehicles.</description>
+
+
+# <field type="char[9]" name="flight_id">Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20) used as a trailing pad character, or when call sign is unavailable. Reflects Control message setting. This is null-terminated.</field>
+uint8[9] flight_id

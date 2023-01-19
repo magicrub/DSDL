@@ -1,0 +1,74 @@
+# Copy of MAVLink msg
+# <message id="10002" name="UAVIONIX_ADSB_OUT_DYNAMIC">
+# <description>Dynamic data used to generate ADS-B out transponder data (send at 5Hz)</description>
+
+
+# <field type="uint32_t" name="utcTime" units="s">UTC time in seconds since GPS epoch (Jan 6, 1980). If unknown set to UINT32_MAX</field>
+uint32 utcTime
+
+# <field type="int32_t" name="gpsLat" units="degE7">Latitude WGS84 (deg * 1E7). If unknown set to INT32_MAX</field>
+int32 gpsLat
+
+# <field type="int32_t" name="gpsLon" units="degE7">Longitude WGS84 (deg * 1E7). If unknown set to INT32_MAX</field>
+int32 gpsLon
+
+# <field type="int32_t" name="gpsAlt" units="mm">Altitude (WGS84). UP +ve. If unknown set to INT32_MAX</field>
+int32 gpsAlt
+
+# <field type="uint8_t" name="gpsFix" enum="UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX">0-1: no fix, 2: 2D fix, 3: 3D fix, 4: DGPS, 5: RTK</field>
+# <description>Status for ADS-B transponder dynamic input</description>
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_0 = 0
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_1 = 1
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_2D = 2
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_3D = 3
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_DGPS = 4
+uint3 UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_RTK = 5
+uint3 gpsFix
+
+# <field type="uint8_t" name="numSats">Number of satellites visible. If unknown set to UINT8_MAX</field>
+uint8 numSats
+
+# <field type="int32_t" name="baroAltMSL" units="mbar">Barometric pressure altitude (MSL) relative to a standard atmosphere of 1013.2 mBar and NOT bar corrected altitude (m * 1E-3). (up +ve). If unknown set to INT32_MAX</field>
+int32 baroAltMSL
+
+# <field type="uint32_t" name="accuracyHor" units="mm">Horizontal accuracy in mm (m * 1E-3). If unknown set to UINT32_MAX</field>
+uint32 accuracyHor
+
+# <field type="uint16_t" name="accuracyVert" units="cm">Vertical accuracy in cm. If unknown set to UINT16_MAX</field>
+uint16 accuracyVert
+
+# <field type="uint16_t" name="accuracyVel" units="mm/s">Velocity accuracy in mm/s (m * 1E-3). If unknown set to UINT16_MAX</field>
+uint16 accuracyVel
+
+# <field type="int16_t" name="velVert" units="cm/s">GPS vertical speed in cm/s. If unknown set to INT16_MAX</field>
+int16 velVert
+
+# <field type="int16_t" name="velNS" units="cm/s">North-South velocity over ground in cm/s North +ve. If unknown set to INT16_MAX</field>
+int16 velNS
+
+# <field type="int16_t" name="VelEW" units="cm/s">East-West velocity over ground in cm/s East +ve. If unknown set to INT16_MAX</field>
+int16 VelEW
+
+# <field type="uint8_t" name="emergencyStatus" enum="UAVIONIX_ADSB_EMERGENCY_STATUS">Emergency status</field>
+# <description>Emergency status encoding</description>
+uint4 UAVIONIX_ADSB_OUT_NO_EMERGENCY = 0
+uint4 UAVIONIX_ADSB_OUT_GENERAL_EMERGENCY = 1
+uint4 UAVIONIX_ADSB_OUT_LIFEGUARD_EMERGENCY = 2
+uint4 UAVIONIX_ADSB_OUT_MINIMUM_FUEL_EMERGENCY = 3
+uint4 UAVIONIX_ADSB_OUT_NO_COMM_EMERGENCY = 4
+uint4 UAVIONIX_ADSB_OUT_UNLAWFUL_INTERFERANCE_EMERGENCY = 5
+uint4 UAVIONIX_ADSB_OUT_DOWNED_AIRCRAFT_EMERGENCY = 6
+uint4 UAVIONIX_ADSB_OUT_RESERVED = 7
+uint4 emergencyStatus
+
+# <field type="uint16_t" name="state" enum="UAVIONIX_ADSB_OUT_DYNAMIC_STATE" display="bitmask">ADS-B transponder dynamic input state flags</field>
+# <description>State flags for ADS-B transponder dynamic report</description>
+uint5 UAVIONIX_ADSB_OUT_DYNAMIC_STATE_INTENT_CHANGE = 1
+uint5 UAVIONIX_ADSB_OUT_DYNAMIC_STATE_AUTOPILOT_ENABLED = 2
+uint5 UAVIONIX_ADSB_OUT_DYNAMIC_STATE_NICBARO_CROSSCHECKED = 4
+uint5 UAVIONIX_ADSB_OUT_DYNAMIC_STATE_ON_GROUND = 8
+uint5 UAVIONIX_ADSB_OUT_DYNAMIC_STATE_IDENT = 16
+uint5 state
+
+# <field type="uint16_t" name="squawk">Mode A code (typically 1200 [0x04B0] for VFR)</field>
+uint16 squawk

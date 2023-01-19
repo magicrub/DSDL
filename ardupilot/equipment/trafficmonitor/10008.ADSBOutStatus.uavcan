@@ -1,0 +1,60 @@
+# Copy of MAVLink msg
+# <message id="10008" name="UAVIONIX_ADSB_OUT_STATUS">
+# <description>Status message with information from UCP Heartbeat and Status messages.</description>
+
+
+# <field type="uint8_t" name="state" enum="UAVIONIX_ADSB_OUT_STATUS_STATE" display="bitmask">ADS-B transponder status state flags</field>
+# <description>State flags for ADS-B transponder status report</description>
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_ON_GROUND = 1
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_INTERROGATED_SINCE_LAST = 2
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_XBIT_ENABLED = 4
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_IDENT_ACTIVE = 8
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_MODE_A_ENABLED = 16
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_MODE_C_ENABLED = 32
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_MODE_S_ENABLED = 64
+uint8 UAVIONIX_ADSB_OUT_STATUS_STATE_1090ES_TX_ENABLED = 128
+uint8 state
+
+# <field type="uint16_t" name="squawk">Mode A code (typically 1200 [0x04B0] for VFR)</field>
+uint16 squawk
+
+# <field type="uint8_t" name="NIC_NACp" enum="UAVIONIX_ADSB_OUT_STATUS_NIC_NACP">Integrity and Accuracy of traffic reported as a 4-bit value for each field (NACp 7:4, NIC 3:0) and encoded by Containment Radius (HPL) and Estimated Position Uncertainty (HFOM), respectively</field>
+# <description>State flags for ADS-B transponder status report</description>
+uint8 UAVIONIX_ADSB_NIC_CR_20_NM = 1
+uint8 UAVIONIX_ADSB_NIC_CR_8_NM = 2
+uint8 UAVIONIX_ADSB_NIC_CR_4_NM = 3
+uint8 UAVIONIX_ADSB_NIC_CR_2_NM = 4
+uint8 UAVIONIX_ADSB_NIC_CR_1_NM = 5
+uint8 UAVIONIX_ADSB_NIC_CR_0_3_NM = 6
+uint8 UAVIONIX_ADSB_NIC_CR_0_2_NM = 7
+uint8 UAVIONIX_ADSB_NIC_CR_0_1_NM = 8
+uint8 UAVIONIX_ADSB_NIC_CR_75_M = 9
+uint8 UAVIONIX_ADSB_NIC_CR_25_M = 10
+uint8 UAVIONIX_ADSB_NIC_CR_7_5_M = 11
+uint8 UAVIONIX_ADSB_NACP_EPU_10_NM = 16
+uint8 UAVIONIX_ADSB_NACP_EPU_4_NM = 32
+uint8 UAVIONIX_ADSB_NACP_EPU_2_NM = 48
+uint8 UAVIONIX_ADSB_NACP_EPU_1_NM = 64
+uint8 UAVIONIX_ADSB_NACP_EPU_0_5_NM = 80
+uint8 UAVIONIX_ADSB_NACP_EPU_0_3_NM = 96
+uint8 UAVIONIX_ADSB_NACP_EPU_0_1_NM = 112
+uint8 UAVIONIX_ADSB_NACP_EPU_0_05_NM = 128
+uint8 UAVIONIX_ADSB_NACP_EPU_30_M = 144
+uint8 UAVIONIX_ADSB_NACP_EPU_10_M = 160
+uint8 UAVIONIX_ADSB_NACP_EPU_3_M = 176
+uint8 NIC_NACp
+
+# <field type="uint8_t" name="boardTemp">Board temperature in C</field>
+uint8 boardTemp
+
+# <description>State flags for ADS-B transponder fault report</description>
+# <field type="uint8_t" name="fault" enum="UAVIONIX_ADSB_OUT_STATUS_FAULT" display="bitmask">ADS-B transponder fault flags</field>
+uint8 UAVIONIX_ADSB_OUT_STATUS_FAULT_STATUS_MESSAGE_UNAVAIL = 8
+uint8 UAVIONIX_ADSB_OUT_STATUS_FAULT_GPS_NO_POS = 16
+uint8 UAVIONIX_ADSB_OUT_STATUS_FAULT_GPS_UNAVAIL = 32
+uint8 UAVIONIX_ADSB_OUT_STATUS_FAULT_TX_SYSTEM_FAIL = 64
+uint8 UAVIONIX_ADSB_OUT_STATUS_FAULT_MAINT_REQ = 128
+uint8 fault
+
+# <field type="char[8]" name="flight_id">Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20) used as a trailing pad character, or when call sign is unavailable.</field>
+uint8[8] flight_id

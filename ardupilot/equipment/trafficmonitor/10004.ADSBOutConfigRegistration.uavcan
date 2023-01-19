@@ -1,0 +1,7 @@
+# Copy of MAVLink msg
+# <message id="10004" name="UAVIONIX_ADSB_OUT_CFG_REGISTRATION">
+# <description>Aircraft Registration.</description>
+
+
+# <field type="char[9]" name="registration">Aircraft Registration (ASCII string A-Z, 0-9 only), e.g. "N8644B ". Trailing spaces (0x20) only. This is null-terminated.</field>
+uint8[9] registration

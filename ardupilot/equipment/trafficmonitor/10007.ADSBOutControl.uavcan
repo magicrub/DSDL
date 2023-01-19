@@ -1,0 +1,41 @@
+# Copy of MAVLink msg
+# <message id="10007" name="UAVIONIX_ADSB_OUT_CONTROL">
+# <description>Control message with all data sent in UCP control message.</description>
+
+
+# <field type="uint8_t" name="state" enum="UAVIONIX_ADSB_OUT_CONTROL_STATE" display="bitmask">ADS-B transponder control state flags</field>
+# <description>State flags for ADS-B transponder dynamic report</description>
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_EXTERNAL_BARO_CROSSCHECKED = 1
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_ON_GROUND = 4
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_IDENT_BUTTON_ACTIVE = 8
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_MODE_A_ENABLED = 16
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_MODE_C_ENABLED = 32
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_MODE_S_ENABLED = 64
+uint8 UAVIONIX_ADSB_OUT_CONTROL_STATE_1090ES_TX_ENABLED = 128
+uint8 state
+
+# <field type="int32_t" name="baroAltMSL" units="mbar">Barometric pressure altitude (MSL) relative to a standard atmosphere of 1013.2 mBar and NOT bar corrected altitude (m * 1E-3). (up +ve). If unknown set to INT32_MAX</field>
+int32 baroAltMSL
+
+# <field type="uint16_t" name="squawk">Mode A code (typically 1200 [0x04B0] for VFR)</field>
+uint16 squawk
+
+# <field type="uint8_t" name="emergencyStatus" enum="UAVIONIX_ADSB_EMERGENCY_STATUS">Emergency status</field>
+# <description>Emergency status encoding</description>
+uint4 UAVIONIX_ADSB_OUT_NO_EMERGENCY = 0
+uint4 UAVIONIX_ADSB_OUT_GENERAL_EMERGENCY = 1
+uint4 UAVIONIX_ADSB_OUT_LIFEGUARD_EMERGENCY = 2
+uint4 UAVIONIX_ADSB_OUT_MINIMUM_FUEL_EMERGENCY = 3
+uint4 UAVIONIX_ADSB_OUT_NO_COMM_EMERGENCY = 4
+uint4 UAVIONIX_ADSB_OUT_UNLAWFUL_INTERFERANCE_EMERGENCY = 5
+uint4 UAVIONIX_ADSB_OUT_DOWNED_AIRCRAFT_EMERGENCY = 6
+uint4 UAVIONIX_ADSB_OUT_RESERVED = 7
+uint4 emergencyStatus
+
+# <field type="char[8]" name="flight_id">Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20) used as a trailing pad character, or when call sign is unavailable.</field>
+uint8[8] flight_id
+
+# <field type="uint8_t" name="x_bit" enum="UAVIONIX_ADSB_XBIT" display="bitmask">X-Bit enable (military transponders only)</field>
+# <description>State flags for X-Bit and reserved fields.</description>
+uint8 UAVIONIX_ADSB_XBIT_ENABLED = 128
+uint8 x_bit
